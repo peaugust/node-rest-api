@@ -2,10 +2,12 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import dbConfig from './config/database.config';
+import auth from './routes/auth';
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(auth);
 
 mongoose.Promise = global.Promise;
 
